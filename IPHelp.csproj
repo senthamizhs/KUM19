@@ -50,17 +50,21 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CyberPlatOpenSSL">
-      <HintPath>..\..\..\TFS2018\IPHELP\IPHelp\bin\CyberPlatOpenSSL.dll</HintPath>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\Bin\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Services3">
-      <HintPath>..\..\..\TFS2018\IPHELP\IPHelp\bin\Microsoft.Web.Services3.dll</HintPath>
+      <HintPath>..\Bin\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\..\ABCD_RAYS_WS_ALL_LIVE\TravRaysWS\TravRaysWS\Bin\RestSharp.dll</HintPath>
+      <HintPath>..\Bin\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SmartWebClient">
-      <HintPath>..\..\..\TFS2018\IPHELP\IPHelp\bin\SmartWebClient.dll</HintPath>
+      <HintPath>..\Bin\SmartWebClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

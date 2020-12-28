@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\IPHelp-branch\obj\Debug\IPHelp.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\IPHelp.dll.config
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\IPHelp.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\IPHelp.pdb
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\HtmlAgilityPack.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\Microsoft.Web.Services3.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\RestSharp.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\bin\SmartWebClient.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\obj\Debug\IPHelp.dll
+C:\Users\Administrator\Desktop\IPHelp-branch\obj\Debug\IPHelp.pdb
