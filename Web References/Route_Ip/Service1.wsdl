@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSoapAction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRequestData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestWithHttp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sessionid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestWithHttpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendRequestWithHttpResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:SendRequest" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:SendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpSoapIn">
+    <wsdl:part name="parameters" element="tns:SendRequestWithHttp" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpSoapOut">
+    <wsdl:part name="parameters" element="tns:SendRequestWithHttpResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestHttpGetIn">
+    <wsdl:part name="strUrl" type="s:string" />
+    <wsdl:part name="strMethod" type="s:string" />
+    <wsdl:part name="strSoapAction" type="s:string" />
+    <wsdl:part name="strRequestData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpHttpGetIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="sessionid" type="s:string" />
+    <wsdl:part name="method" type="s:string" />
+    <wsdl:part name="parameter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestHttpPostIn">
+    <wsdl:part name="strUrl" type="s:string" />
+    <wsdl:part name="strMethod" type="s:string" />
+    <wsdl:part name="strSoapAction" type="s:string" />
+    <wsdl:part name="strRequestData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpHttpPostIn">
+    <wsdl:part name="URL" type="s:string" />
+    <wsdl:part name="sessionid" type="s:string" />
+    <wsdl:part name="method" type="s:string" />
+    <wsdl:part name="parameter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestWithHttpHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="SendRequest">
+      <wsdl:input message="tns:SendRequestSoapIn" />
+      <wsdl:output message="tns:SendRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendRequestWithHttp</wsdl:documentation>
+      <wsdl:input message="tns:SendRequestWithHttpSoapIn" />
+      <wsdl:output message="tns:SendRequestWithHttpSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="SendRequest">
+      <wsdl:input message="tns:SendRequestHttpGetIn" />
+      <wsdl:output message="tns:SendRequestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendRequestWithHttp</wsdl:documentation>
+      <wsdl:input message="tns:SendRequestWithHttpHttpGetIn" />
+      <wsdl:output message="tns:SendRequestWithHttpHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="SendRequest">
+      <wsdl:input message="tns:SendRequestHttpPostIn" />
+      <wsdl:output message="tns:SendRequestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendRequestWithHttp</wsdl:documentation>
+      <wsdl:input message="tns:SendRequestWithHttpHttpPostIn" />
+      <wsdl:output message="tns:SendRequestWithHttpHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendRequest">
+      <soap:operation soapAction="http://tempuri.org/SendRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <soap:operation soapAction="http://tempuri.org/SendRequestWithHttp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendRequest">
+      <soap12:operation soapAction="http://tempuri.org/SendRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <soap12:operation soapAction="http://tempuri.org/SendRequestWithHttp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendRequest">
+      <http:operation location="/SendRequest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <http:operation location="/SendRequestWithHttp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendRequest">
+      <http:operation location="/SendRequest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestWithHttp">
+      <http:operation location="/SendRequestWithHttp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost:1861/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost:1861/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://localhost:1861/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://localhost:1861/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
